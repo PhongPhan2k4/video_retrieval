@@ -1,5 +1,3 @@
-
-
 import os
 import numpy as np
 
@@ -26,8 +24,6 @@ class TextEmbedding():
 
     return text_feature.detach().cpu().numpy()
 
-text_embedd = TextEmbedding()
-
 """### Image Embedding"""
 
 class ImageEmbedding():
@@ -43,8 +39,6 @@ class ImageEmbedding():
             image_feature = self.model.encode_image(image_input)[0]
 
         return image_feature.detach().cpu().numpy()
-
-image_embedder = ImageEmbedding()
 
 """### Indexing"""
 
@@ -72,11 +66,6 @@ def indexing_methods(features_path: str) -> pd.DataFrame:
 
     df = pd.DataFrame(data)
     return df
-
-FEATURES_PATH = "clip-features-b1\\clip-features"
-visual_features_df = indexing_methods(FEATURES_PATH)
-
-visual_features_df.head()
 
 def search_engine(query_arr: np.array,
                   db: list,
@@ -122,11 +111,6 @@ def search_engine(query_arr: np.array,
                               "score": distance})
 
     return search_result
-
-
-import os
-from typing import List
-from PIL import Image
 
 def read_image(results: List[dict]) -> List[Image.Image]:
     images = []

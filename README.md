@@ -1,2 +1,2 @@
 # video_retrieval
-link demo: 
+link demo: https://videoretrieval-app.streamlit.app/

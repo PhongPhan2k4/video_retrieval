@@ -2,7 +2,7 @@ import streamlit as st
 from PIL import Image
 import faiss
 import numpy as np
-import embedding
+import modules.embedding
 import pandas as pd
 import requests
 import json

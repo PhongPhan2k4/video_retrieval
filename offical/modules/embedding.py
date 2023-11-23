@@ -1,16 +1,16 @@
-import numpy as np
-import clip
+from transformers import CLIPProcessor, CLIPModel
 import torch
 from PIL import Image
+import numpy as np
     
-# Text Embedding
 class TextEmbedding():
   def __init__(self):
-    self.model, _ = clip.load("ViT-B/32")
+    self.model = CLIPModel.from_pretrained("openai/clip-vit-base-patch16")
+    self.processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch16")
 
   def __call__(self, text: str) -> np.ndarray:
-    text_inputs = clip.tokenize([text])
+    input = self.processor(text, images=Image.fromarray(np.array([0,0,0])), return_tensors="pt", padding=True, truncation=True)
     with torch.no_grad():
-        text_feature = self.model.encode_text(text_inputs)[0]
+        text_feature = self.model(**input)['text_embeds'][0]
 
     return text_feature.detach().numpy()

@@ -5,4 +5,4 @@ requests==2.26.0
 googletrans==4.0.0-rc1
 torch==1.9.1
 faiss-cpu==1.7.4
-transformer
+transformers

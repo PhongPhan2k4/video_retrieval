@@ -2,7 +2,7 @@ import streamlit as st
 from PIL import Image
 import faiss
 import numpy as np
-import modules.embedding
+from modules.embedding import TextEmbedding
 import pandas as pd
 import requests
 import json
@@ -13,7 +13,7 @@ st.title('W1 Doppelganger')
 
 @st.cache_resource
 def load():
-    text_embedder = embedding.TextEmbedding()
+    text_embedder = TextEmbedding()
     btc = pd.read_csv('indexing.csv')
     extract = pd.read_csv('extract_indexing.csv')
     index = faiss.read_index('faiss_index.faiss')

@@ -1,0 +1,9 @@
+PIL
+faiss
+numpy
+pandas
+requests
+json
+googletrans
+torch
+pytorch

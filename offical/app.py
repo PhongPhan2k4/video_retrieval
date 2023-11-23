@@ -16,8 +16,8 @@ st.title('W1 Doppelganger')
 def load():
     text_embedder = TextEmbedding()
     btc = pd.read_csv(os.path.join('data', 'indexing.csv'))
-    extract = pd.read_csv(os.path.join('data', 'extract_indexing.csv')
-    index = faiss.read_index(os.path.join('data', 'faiss_index.faiss')
+    extract = pd.read_csv(os.path.join('data', 'extract_indexing.csv'))
+    index = faiss.read_index(os.path.join('data', 'faiss_index.faiss'))
     translator = Translator()
     return text_embedder, btc, extract, index, translator
 text_embedder, btc, extract, index, translator = load()

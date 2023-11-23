@@ -1,8 +1,7 @@
-Pillow
-numpy
-pandas
-requests
-json
+Pillow==8.4.0
+numpy==1.21.4
+pandas==1.3.3
+requests==2.26.0
 googletrans==4.0.0-rc1
-torch
-faiss-cpu
+torch==1.9.1
+faiss-cpu==1.7.4
